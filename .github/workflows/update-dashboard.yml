@@ -42,7 +42,11 @@ jobs:
           git add docs/index.html
           if ! git diff --cached --quiet; then
             git commit -m "Atualiza dashboard automaticamente"
-            git push
+            for i in 1 2 3 4 5; do
+              git pull --rebase origin main && git push && break
+              echo "Push falhou (tentativa $i), tentando de novo..."
+              sleep 5
+            done
           else
             echo "Nenhuma mudança nas respostas."
           fi
