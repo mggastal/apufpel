@@ -359,7 +359,11 @@ body {{
 header {{
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: #fff;
-  padding: 0 32px 0 0;
+}}
+header .header-inner {{
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   gap: 20px;
@@ -420,14 +424,16 @@ footer {{ text-align: center; padding: 20px; color: var(--muted); font-size: 12p
 </head>
 <body>
 <header>
-  {'<img src="' + logo + '" alt="APUFPEL">' if logo else ''}
-  <div class="title">
-    <h1>Pesquisa de Satisfação — Projeto Culinária Criativa</h1>
-    <p>Workshop Especial Mão na Massa &middot; APUFPEL — A Associação das Gerações</p>
-  </div>
-  <div class="meta">
-    Última resposta: {ctx['ultima_resposta'] or '—'}<br>
-    Atualizado em {ctx['gerado_em']}
+  <div class="header-inner">
+    {'<img src="' + logo + '" alt="APUFPEL">' if logo else ''}
+    <div class="title">
+      <h1>Pesquisa de Satisfação — Projeto Culinária Criativa</h1>
+      <p>Workshop Especial Mão na Massa &middot; APUFPEL — A Associação das Gerações</p>
+    </div>
+    <div class="meta">
+      Última resposta: {ctx['ultima_resposta'] or '—'}<br>
+      Atualizado em {ctx['gerado_em']}
+    </div>
   </div>
 </header>
 
