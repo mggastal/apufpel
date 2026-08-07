@@ -16,7 +16,7 @@ import os
 import re
 import sys
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 import pandas as pd
 import requests
@@ -288,7 +288,7 @@ def build_context(df: pd.DataFrame) -> dict:
         "participaria_certeza_pct": pct(
             counter_ordered(df["participaria_outros"], PARTICIPARIA_ORDER).get("Com certeza", 0), total
         ),
-        "gerado_em": datetime.now(timezone.utc).strftime("%d/%m/%Y às %H:%M UTC"),
+        "gerado_em": (datetime.now(timezone.utc) - timedelta(hours=3)).strftime("%d/%m/%Y às %H:%M") + " (horário de Brasília)",
     }
 
 
@@ -359,16 +359,17 @@ body {{
 header {{
   background: linear-gradient(135deg, var(--navy) 0%, var(--navy-dark) 100%);
   color: #fff;
-  padding: 28px 32px;
+  padding: 0 32px 0 0;
   display: flex;
   align-items: center;
   gap: 20px;
   flex-wrap: wrap;
 }}
-header img {{ height: 64px; background: #fff; border-radius: 10px; padding: 6px; }}
+header img {{ height: 76px; background: #fff; padding: 8px 14px; }}
+header .title {{ padding: 28px 0; }}
 header .title h1 {{ margin: 0; font-size: 22px; font-weight: 700; }}
 header .title p {{ margin: 4px 0 0; color: #C7CBF5; font-size: 14px; }}
-header .meta {{ margin-left: auto; text-align: right; font-size: 13px; color: #C7CBF5; }}
+header .meta {{ margin-left: auto; text-align: right; font-size: 13px; color: #C7CBF5; padding: 28px 0; }}
 main {{ max-width: 1180px; margin: 0 auto; padding: 28px 20px 60px; }}
 .grid {{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 24px; }}
 .stat-card {{
