@@ -25,8 +25,7 @@ import requests
 # Config
 # ---------------------------------------------------------------------------
 
-SHEET_ID = os.environ.get("SHEET_ID", "1CKoap-5nDXimxHe3qIAgX9NHiW9qEgtaAl9QdjFMFBI")
-GID = os.environ.get("SHEET_GID", "0")
+SHEET_ID = os.environ.get("SHEET_ID") or "1CKoap-5nDXimxHe3qIAgX9NHiW9qEgtaAl9QdjFMFBI" GID = os.environ.get("SHEET_GID") or "0"
 CSV_URL = f"https://docs.google.com/spreadsheets/d/{SHEET_ID}/gviz/tq?tqx=out:csv&gid={GID}"
 
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
