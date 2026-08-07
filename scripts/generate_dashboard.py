@@ -369,7 +369,7 @@ header .header-inner {{
   gap: 20px;
   flex-wrap: wrap;
 }}
-header img {{ height: 76px; background: #fff; padding: 8px 14px; }}
+header img {{ height: 76px; background: #fff; padding: 8px 14px; border-radius: 10px; }}
 header .title {{ padding: 28px 0; }}
 header .title h1 {{ margin: 0; font-size: 22px; font-weight: 700; }}
 header .title p {{ margin: 4px 0 0; color: #C7CBF5; font-size: 14px; }}
